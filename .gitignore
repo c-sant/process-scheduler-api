@@ -1,0 +1,12 @@
+# Python virtual environment
+venv/
+.venv/
+
+# Python cache files
+__pycache__/
+
+# Sandbox files for experimental coding
+sandbox/
+
+# Visual Studio Code settings file
+.vscode
