@@ -1,10 +1,10 @@
 # Process Scheduling API
 
-This Flask web application provides an API for executing various process scheduling algorithms. You can use this API to simulate different scheduling strategies for a set of processes and analyze their performance.
+This Flask web application provides an API for executing various process scheduling algorithms. You can use this API to simulate different scheduling strategies for a set of processes and analyze their performance. It was made using the [source code of another project of mine](https://github.com/c-sant/scheduling-sim).
 
 ## Implemented Algorithms
 
-So far, the simulator supports the following algorithms:
+The simulator supports the following algorithms:
 
 - [X] **FCFS**: First Come First Serve
 - [X] **SJF**: Shortest Job First
@@ -71,25 +71,25 @@ python app.py
 
 ```json
 {
-    "algorithm": "FCFS", // the scheduling algorithm
-    "n_of_processes": 2, // any positive integer value
-    "name": ["p1", "p2"], // name of each process
-    "arrival_time": [0, 1], // arrival time of each process
-    "execution_time": [5, 2], // execution/burst time of each process
-    "priority_level": [2, 1], // priority level of each process
-    "quantum_length": 2, // optional: quantum length to be used with the Round Robin algorithm
-    "reversed": true // optional: if priority algorithms should consider priority level in descending order or not.
+    "algorithm": "FCFS",
+    "n_of_processes": 2,
+    "name": ["p1", "p2"],
+    "arrival_time": [0, 1],
+    "execution_time": [5, 2],
+    "priority_level": [2, 1],
+    "quantum_length": 2,
+    "reversed": true
 }
 ```
 
-Valid scheduling algorithms are:
-
-- First-Come-First-Serve (FCFS)
-- Shortest Job First (SJF)
-- Round Robin (RR)
-- Priority Cooperative (PRIOc)
-- Priority Preemptive (PRIOp)
-- Shortest Remaining Time First (SRTF)
+- `algorithm`: the acronym of the algorithm you intend to use. Refer to [Implemented Algorithms](#implemented-algorithms).
+- `n_of_processes`: any positive integer.
+- `name`: name of each process. Should be a list with as many items as specified by `n_of_processes`.
+- `arrival_time`: arrival time of each process. Should be a list with as many items as specified by `n_of_processes`.
+- `execution_time`: execution/burst time of each process. Should be a list with as many items as specified by `n_of_processes`.
+- `priority_level`: level of priority of each process. Should be a list with as many items as specified by `n_of_processes`.
+- `quantum_length`: the quantum length used by the Round Robin algorithm.
+- `reversed`: if true, priority levels will follow a descending order.
 
 3. The response should have the following structure:
 
