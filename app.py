@@ -49,7 +49,12 @@ def execute_process_scheduling():
             case "SRTF":
                 scheduler = ShortestRemainingTimeFirstScheduler(processes)
             case _:
-                return jsonify({"message": f"Invalid algorithm '{data['algorithm']}'."})
+                valid_algorithms = ["FCFS", "SJF", "PRIOc", "RR", "SRTF", "PRIOp"]
+                return jsonify(
+                    {
+                        "message": f"Invalid algorithm '{data['algorithm']}'. Must be one of the following: {', '.join(valid_algorithms)}."
+                    }
+                )
 
         scheduler.run()
 
